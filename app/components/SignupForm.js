@@ -6,17 +6,44 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useUserAuth } from "../_utils/auth-context";
 
 export default function SignupForm() {
-  const [error, setError] = useState(null);
+  const { registerWithEmail } = useUserAuth();
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   async function handleSubmit(event) {
     event.preventDefault();
-    setError(null);
+    setError("");
+    setLoading(true);
 
-    // TODO: Implement Firebase signup
-    console.log("Sign up new user");
+    const formData = new FormData(event.currentTarget);
+    const username = formData.get("username");
+    const email = formData.get("email");
+    const password = formData.get("password");
+    const confirmPassword = formData.get("confirmPassword");
+
+    if (password !== confirmPassword) {
+      setError("Passwords do not match");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const result = await registerWithEmail(email, password, username);
+
+      if (result.success) {
+        router.push("/dashboard");
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
   }
 
   return (
@@ -26,6 +53,7 @@ export default function SignupForm() {
         <Input
           id="username"
           name="username"
+          placeholder="Enter your username"
           required
           className="border-pink-300 focus:border-pink-500"
         />
@@ -36,6 +64,7 @@ export default function SignupForm() {
           id="email"
           name="email"
           type="email"
+          placeholder="Enter your email"
           required
           className="border-pink-300 focus:border-pink-500"
         />
@@ -46,6 +75,7 @@ export default function SignupForm() {
           id="password"
           name="password"
           type="password"
+          placeholder="Enter your password"
           required
           className="border-pink-300 focus:border-pink-500"
         />
@@ -56,13 +86,18 @@ export default function SignupForm() {
           id="confirmPassword"
           name="confirmPassword"
           type="password"
+          placeholder="Confirm your password"
           required
           className="border-pink-300 focus:border-pink-500"
         />
       </div>
       {error && <p className="text-red-500 text-center">{error}</p>}
-      <Button type="submit" className="w-full bg-pink-500 hover:bg-pink-600">
-        Sign Up
+      <Button
+        type="submit"
+        className="w-full bg-pink-500 hover:bg-pink-600"
+        disable={loading}
+      >
+        {loading ? "Signing Up..." : "Sign Up"}
       </Button>
       <div className="text-center text-sm">
         <Link href="/login" className="text-pink-600 hover:underline">

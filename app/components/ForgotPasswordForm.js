@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../_utils/firebase";
 
 export default function ForgotPasswordForm() {
   const [error, setError] = useState(null);
@@ -14,9 +16,15 @@ export default function ForgotPasswordForm() {
     setError(null);
     setSuccess(false);
 
-    // TODO: Implement Firebase password reset
-    console.log("Request password reset");
-    setSuccess(true);
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get("email");
+
+    try {
+      await sendPasswordResetEmail(auth, email);
+      setSuccess(true);
+    } catch (err) {
+      setError(err.message || "Failed to send password reset email");
+    }
   }
 
   return (
