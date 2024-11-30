@@ -1,7 +1,6 @@
 "use client";
 
 import { useContext, createContext, useState, useEffect } from "react";
-import { Timestamp } from "firebase/firestore";
 import {
   signInWithPopup,
   signOut,
@@ -11,18 +10,36 @@ import {
   signInWithEmailAndPassword,
 } from "firebase/auth";
 import { auth } from "./firebase";
-import { getFirestore, doc, setDoc } from "firebase/firestore";
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  Timestamp,
+} from "firebase/firestore";
 
 const AuthContext = createContext();
 const db = getFirestore();
 
-const createUserInFirestore = async (uid, email, username) => {
-  const userDocRef = doc(db, "users", uid);
-  await setDoc(userDocRef, {
-    email,
-    username,
-    createdAt: Timestamp.now(),
-  });
+const createUserInFirestore = async (uid, email, username = "Anonymous") => {
+  try {
+    const userDocRef = doc(db, "users", uid);
+    const userSnapshot = await getDoc(userDocRef);
+
+    // if user doesn't exist, create user in firestore
+    if (!userSnapshot.exists()) {
+      await setDoc(userDocRef, {
+        email,
+        username,
+        createdAt: Timestamp.now(),
+      });
+      console.log("New user written to Firestore.");
+    } else {
+      console.log("User already exists in Firestore.");
+    }
+  } catch (error) {
+    console.error("Error writing user to Firestore:", error);
+  }
 };
 
 const handleError = (error) => {
@@ -89,14 +106,18 @@ export const AuthContextProvider = ({ children }) => {
       const result = await signInWithPopup(auth, provider);
 
       // if user doesn't exist, create user in firestore
-      if (result.additionalUserInfo?.isNewUser) {
-        await createUserInFirestore(result.user.uid, result.user.email);
-      }
+      await createUserInFirestore(
+        result.user.uid,
+        result.user.email,
+        result.user.displayName || "Google User"
+      );
 
       setUser(result.user);
+      console.log("Google sign-in successful!");
 
       return { success: true };
     } catch (error) {
+      console.error("Google sign-in failed:", error);
       return handleError(error);
     }
   };
