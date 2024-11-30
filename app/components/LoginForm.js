@@ -1,39 +1,66 @@
 "use client";
 
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { useUserAuth } from "../_utils/auth-context";
+import { useRouter } from "next/navigation";
 
 export default function LoginForm() {
-  const [error, setError] = useState(null);
   const router = useRouter();
+  const { googleSignIn, loginWithEmail } = useUserAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
 
-  async function handleUsernameLogin(event) {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    setError(null);
+    setError("");
 
-    // TODO: Implement Firebase authentication
-    console.log("Login with username and password");
-  }
+    try {
+      const result = await loginWithEmail(email, password);
 
-  async function handleGoogleLogin() {
-    setError(null);
+      if (result.success) {
+        router.push("/dashboard");
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
-    // TODO: Implement Firebase Google authentication
-    console.log("Login with Google");
-  }
+  const handleGoogleLogin = async () => {
+    try {
+      const result = await googleSignIn();
+
+      if (result.success) {
+        router.push("/dashboard");
+      } else {
+        setError(result.error);
+      }
+    } catch (err) {
+      setError(err.message);
+    }
+  };
 
   return (
     <div className="space-y-4">
-      <form onSubmit={handleUsernameLogin} className="space-y-4">
+      {error && (
+        <p className="text-red-500 mb-4 bg-red-50 border border-red-300 px-4 py-2 rounded">
+          {error}
+        </p>
+      )}
+      <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
-          <Label htmlFor="username">Username</Label>
+          <Label htmlFor="email">Email</Label>
           <Input
-            id="username"
-            name="username"
+            id="email"
+            placeholder="Enter your email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
             className="border-pink-300 focus:border-pink-500"
           />
@@ -42,8 +69,10 @@ export default function LoginForm() {
           <Label htmlFor="password">Password</Label>
           <Input
             id="password"
-            name="password"
             type="password"
+            placeholder="Enter your password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
             required
             className="border-pink-300 focus:border-pink-500"
           />
@@ -75,7 +104,6 @@ export default function LoginForm() {
       >
         Login with Google
       </Button>
-      {error && <p className="text-red-500 text-center">{error}</p>}
     </div>
   );
 }
