@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }) {
     }
   };
 
-  const username = user?.displayName || user?.email || "User";
+  const username = user?.username || user?.displayName || user?.email || "User";
 
   // if user is not loaded yet, show loading message
   if (user === null) {
