@@ -138,9 +138,33 @@ export const AuthContextProvider = ({ children }) => {
 
   // Check if user is logged in
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
-        setUser(currentUser);
+        try {
+          // Get user data from firestore
+          const userDocRef = doc(db, "users", currentUser.uid);
+          const userSnapshot = await getDoc(userDocRef);
+
+          if (userSnapshot.exists()) {
+            const userData = userSnapshot.data();
+            // Merge user data with auth data
+            setUser({
+              uid: currentUser.uid,
+              email: currentUser.email,
+              displayName: currentUser.displayName,
+              username: userData.username || "Anonymous",
+            });
+          } else {
+            // if user data doesn't exist in firestore, use auth data
+            setUser({
+              uid: currentUser.uid,
+              email: currentUser.email,
+              displayName: currentUser.displayName || "Anonymous",
+            });
+          }
+        } catch (error) {
+          console.error("Failed to fetch Firestore user data:", error);
+        }
       } else {
         setUser(null);
       }
