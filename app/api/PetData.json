@@ -1,0 +1,58 @@
+{
+    "animals": [
+        {
+            "id": 1,
+            "type": "dog",
+            "breeds": {
+                "primary": "Labrador",
+                "secondary": "Retriever",
+                "mixed": false,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "Black",
+                "secondary": "Brown",
+                "tertiary": "White"
+            },
+            "age": "Adult",
+            "gender": "Male",
+            "size": "Large",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": false,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "friendly",
+                "playful",
+                "energetic"
+            ],
+            "name": "Rex",
+            "description": "Rex is a friendly and playful dog. He is energetic and loves to play with other dogs and cats. He is house trained and up to date on all his shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2021-11-13T03:58:12",
+            "contact": {
+                "email": "placeholder@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Toronto",
+                    "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
+        }
+    ]
+}
