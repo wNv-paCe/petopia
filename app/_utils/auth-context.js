@@ -70,6 +70,7 @@ const handleError = (error) => {
 export const AuthContextProvider = ({ children }) => {
   const [user, setUser] = useState(null);
 
+  // Register user with email and password
   const registerWithEmail = async (email, password, username) => {
     try {
       const result = await createUserWithEmailAndPassword(
@@ -88,6 +89,7 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  // Login user with email and password
   const loginWithEmail = async (email, password) => {
     try {
       const result = await signInWithEmailAndPassword(auth, email, password);
@@ -100,6 +102,7 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  // Sign in with Google
   const googleSignIn = async () => {
     try {
       const provider = new GoogleAuthProvider();
@@ -122,6 +125,7 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  // Sign out user
   const firebaseSignOut = async () => {
     try {
       await signOut(auth);
@@ -132,6 +136,7 @@ export const AuthContextProvider = ({ children }) => {
     }
   };
 
+  // Check if user is logged in
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
