@@ -2,7 +2,7 @@
     "animals": [
         {
             "id": 1,
-            "type": "dog",
+            "type": "Dog",
             "breeds": {
                 "primary": "Labrador",
                 "secondary": "Retriever",
@@ -42,7 +42,7 @@
                 "https://via.placeholder.com/150"
             ],
             "adoptable": true,
-            "published_at": "2021-11-13T03:58:12",
+            "published_at": "2024-11-13 @03:58:12",
             "contact": {
                 "email": "placeholder@petopia.ca",
                 "phone": "123-456-7890",
@@ -56,11 +56,11 @@
         },
         {
             "id": 2,
-            "type": "cat",
+            "type": "Cat",
             "breeds": {
                 "primary": "Siamese",
-                "secondary": "Mix",
-                "mixed": true,
+                "secondary": "Applehead",
+                "mixed": false,
                 "unknown": false
             },
             "colors": {
@@ -75,7 +75,7 @@
             "attributes": {
                 "spayed_neutered": true,
                 "house_trained": true,
-                "special_needs": false,
+                "special_needs": true,
                 "shots_current": true
             },
             "environment": {
@@ -84,92 +84,92 @@
                 "cats": true
             },
             "tags": [
-                "friendly",
-                "playful",
-                "energetic"
+                "affectionate",
+                "vaccinated",
+                "calm"
             ],
             "name": "Whiskers",
-            "description": "Whiskers is a friendly and playful cat. He is energetic and loves to play with other cats and dogs. He is house trained and up to date on all his shots.",
+            "description": "Whiskers is an affectionate cat. He is calm and loves to sunbathe. He is house trained and up to date on all his shots.",
             "photos": [
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150"
             ],
             "adoptable": true,
-            "published_at": "2021-11-13T03:58:12",
+            "published_at": "2024-11-28 @14:23:22",
             "contact": {
                 "email": "placeholder@petopia.ca",
                 "phone": "123-456-7890",
                 "address": {
                     "street": "123 Main St",
-                    "city": "Toronto",
-                    "province": "ON",
+                    "city": "Calgary",
+                    "province": "AB",
                     "zip": "M1M 1M1"
                 }
             }
         },
         {
             "id": 3,
-            "type": "dog",
+            "type": "Dog",
             "breeds": {
                 "primary": "Poodle",
-                "secondary": "Mix",
+                "secondary": "Golden Retriever",
                 "mixed": true,
                 "unknown": false
             },
             "colors": {
-                "primary": "White",
-                "secondary": "Brown",
-                "tertiary": "Black"
+                "primary": "Golden",
+                "secondary": "White",
+                "tertiary": null
             },
             "age": "Young",
             "gender": "Female",
-            "size": "Small",
-            "coat": "Short",
+            "size": "Medium",
+            "coat": "Fluffy",
             "attributes": {
-                "spayed_neutered": true,
+                "spayed_neutered": false,
                 "house_trained": true,
                 "special_needs": false,
-                "shots_current": true
+                "shots_current": false
             },
             "environment": {
                 "children": true,
-                "dogs": true,
+                "dogs": false,
                 "cats": true
             },
             "tags": [
-                "friendly",
+                "shy",
                 "playful",
                 "energetic"
             ],
             "name": "Luna",
-            "description": "Luna is a friendly and playful dog. She is energetic and loves to play with other dogs and cats. She is house trained and up to date on all her shots.",
+            "description": "Luna is an energetic and playful puppy. She is shy and needs some training and socializing to play with other dogs. She is house trained but needs shots.",
             "photos": [
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150"
             ],
-            "adoptable": true,
-            "published_at": "2021-11-13T03:58:12",
+            "adoptable": false,
+            "published_at": "2024-11-30 @16:11:05",
             "contact": {
                 "email": "placeholder@petopia.ca",
                 "phone": "123-456-7890",
                 "address": {
                     "street": "123 Main St",
-                    "city": "Toronto",
-                    "province": "ON",
+                    "city": "Saskatoon",
+                    "province": "SK",
                     "zip": "M1M 1M1"
                 }
             }
         },
         {
             "id": 4,
-            "type": "cat",
+            "type": "Cat",
             "breeds": {
-                "primary": "Tabby",
-                "secondary": "Mix",
+                "primary": "Unknown",
+                "secondary": "Unknown",
                 "mixed": true,
-                "unknown": false
+                "unknown": true
             },
             "colors": {
                 "primary": "Brown",
@@ -179,56 +179,56 @@
             "age": "Adult",
             "gender": "Female",
             "size": "Small",
-            "coat": "Short",
+            "coat": "Fluffy",
             "attributes": {
-                "spayed_neutered": true,
-                "house_trained": true,
-                "special_needs": false,
-                "shots_current": true
+                "spayed_neutered": false,
+                "house_trained": false,
+                "special_needs": true,
+                "shots_current": false
             },
             "environment": {
-                "children": true,
-                "dogs": true,
+                "children": false,
+                "dogs": false,
                 "cats": true
             },
             "tags": [
-                "friendly",
-                "playful",
-                "energetic"
+                "independent",
+                "rescue",
+                "mixed breed"
             ],
             "name": "Mittens",
-            "description": "Mittens is a friendly and playful cat. She is energetic and loves to play with other cats and dogs. She is house trained and up to date on all her shots.",
+            "description": "Mittens is an independent rescue cat. She loves to explore. She is not house trained and needs shots and support.",
             "photos": [
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150"
             ],
             "adoptable": true,
-            "published_at": "2021-11-13T03:58:12",
+            "published_at": "2024-11-30 @18:19:25",
             "contact": {
                 "email": "placeholder@petopia.ca",
                 "phone": "123-456-7890",
                 "address": {
                     "street": "123 Main St",
-                    "city": "Toronto",
-                    "province": "ON",
+                    "city": "Vancouver",
+                    "province": "BC",
                     "zip": "M1M 1M1"
                 }
             }
         },
         {
             "id": 5,
-            "type": "dog",
+            "type": "Dog",
             "breeds": {
                 "primary": "Golden Retriever",
-                "secondary": "Mix",
-                "mixed": true,
+                "secondary": "English",
+                "mixed": false,
                 "unknown": false
             },
             "colors": {
-                "primary": "Brown",
-                "secondary": "White",
-                "tertiary": "Black"
+                "primary": "Golden",
+                "secondary": "Brown",
+                "tertiary": null
             },
             "age": "Adult",
             "gender": "Male",
@@ -237,7 +237,7 @@
             "attributes": {
                 "spayed_neutered": true,
                 "house_trained": true,
-                "special_needs": false,
+                "special_needs": true,
                 "shots_current": true
             },
             "environment": {
@@ -247,8 +247,8 @@
             },
             "tags": [
                 "friendly",
-                "playful",
-                "energetic"
+                "blind",
+                "gentle"
             ],
             "name": "Buddy",
             "description": "Buddy is a friendly and playful dog. He is energetic and loves to play with other dogs and cats. He is house trained and up to date on all his shots.",
@@ -258,7 +258,7 @@
                 "https://via.placeholder.com/150"
             ],
             "adoptable": true,
-            "published_at": "2021-11-13T03:58:12",
+            "published_at": "2024-12-01 @01:33:15",
             "contact": {
                 "email": "placeholder@petopia.ca", 
                 "phone": "123-456-7890",
@@ -272,16 +272,16 @@
         },
         {
             "id": 6,
-            "type": "cat",
+            "type": "Cat",
             "breeds": {
                 "primary": "Calico",
-                "secondary": "Mix",
+                "secondary": "Tabby",
                 "mixed": true,
                 "unknown": false
             },
             "colors": {
                 "primary": "White",
-                "secondary": "Brown",
+                "secondary": "Orange",
                 "tertiary": "Black"
             },
             "age": "Young",
@@ -296,30 +296,246 @@
             },
             "environment": {
                 "children": true,
-                "dogs": true,
+                "dogs": false,
                 "cats": true
             },
             "tags": [
-                "friendly",
+                "protective",
                 "playful",
                 "energetic"
             ],
-            "name": "Mittens",
-            "description": "Mittens is a friendly and playful cat. She is energetic and loves to play with other cats and dogs. She is house trained and up to date on all her shots.",
+            "name": "Calypso",
+            "description": "Calypso is a friendly and playful cat. She is protective and will always stay near you. She is house trained and up to date on all her shots.",
             "photos": [
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150",
                 "https://via.placeholder.com/150"
             ],
             "adoptable": true,
-            "published_at": "2021-11-13T03:58:12",
+            "published_at": "2024-12-01 @03:42:31",
             "contact": {
                 "email": "placeholder@petopia.ca",
                 "phone": "123-456-7890",
                 "address": {
                     "street": "123 Main St",
+                    "city": "Edmonton",
+                    "province": "AB",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 7,
+            "type": "Bird",
+            "breeds": {
+                "primary": "Cockatiel",
+                "secondary": "Gray",
+                "mixed": false,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "Gray",
+                "secondary": "White",
+                "tertiary": "Orange"
+            },
+            "age": "Adult",
+            "gender": "Female",
+            "size": "Small",
+            "coat": "Feathers",
+            "attributes": {
+                "spayed_neutered": false,
+                "house_trained": false,
+                "special_needs": false,
+                "shots_current": false
+            },
+            "environment": {
+                "children": true,
+                "dogs": false,
+                "cats": false
+            },
+            "tags": [
+                "singing",
+                "friendly",
+                "talkative"
+            ],
+            "name": "Polly",
+            "description": "Polly is a friendly and talkative bird. She loves to sing and will always keep you entertained. She needs shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2024-12-01 @05:51:44",
+            "contact": {
+                "email": "polly@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Vancouver",
+                    "province": "BC",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 8,
+            "type": "Dog",
+            "breeds": {
+                "primary": "Pug",
+                "secondary": "Beagle",
+                "mixed": true,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "Brown",
+                "secondary": "Black",
+                "tertiary": "White"
+            },
+            "age": "Elderly",
+            "gender": "Male",
+            "size": "Small",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": true,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "gentle",
+                "blind",
+                "friendly"
+            ],
+            "name": "Oscar",
+            "description": "Oscar is a gentle and friendly dog. He is blind and needs special care. He is house trained and up to date on all his shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2024-12-01 @08:02:57",
+            "contact": {
+                "email": "briandogguy@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
                     "city": "Toronto",
                     "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 9,
+            "type": "Turtle",
+            "breeds": {
+                "primary": "Slider",
+                "secondary": "Red-Eared",
+                "mixed": false,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "Green",
+                "secondary": "Yellow",
+                "tertiary": "Brown"
+            },
+            "age": "Adult",
+            "gender": "Female",
+            "size": "Small",
+            "coat": "Shell",
+            "attributes": {
+                "spayed_neutered": false,
+                "house_trained": false,
+                "special_needs": false,
+                "shots_current": false
+            },
+            "environment": {
+                "children": true,
+                "dogs": false,
+                "cats": false
+            },
+            "tags": [
+                "calm",
+                "shy",
+                "quiet"
+            ],
+            "name": "Shelly",
+            "description": "Shelly is a shy and quiet turtle. She loves to relax and bask in the sun. She needs a tank and a heat lamp.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2024-12-01 @10:14:10",
+            "contact": {
+                "email": "shelly@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Calgary",
+                    "province": "AB",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 10,
+            "type": "Rabbit",
+            "breeds": {
+                "primary": "Unknown",
+                "secondary": "Unknown",
+                "mixed": true,
+                "unknown": true
+            },
+            "colors": {
+                "primary": "White",
+                "secondary": "Brown",
+                "tertiary": "Black"
+            },
+            "age": "Young",
+            "gender": "Male",
+            "size": "Small",
+            "coat": "Medium",
+            "attributes": {
+                "spayed_neutered": false,
+                "house_trained": false,
+                "special_needs": true,
+                "shots_current": false
+            },
+            "environment": {
+                "children": true,
+                "dogs": false,
+                "cats": false
+            },
+            "tags": [
+                "playful",
+                "energetic",
+                "friendly"
+            ],
+            "name": "Bugs",
+            "description": "Bugs is a playful and energetic rabbit. He loves to hop around and explore. He needs shots and a cage.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2024-12-01 @12:25:23",
+            "contact": {
+                "email": "bunnies@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Winnipeg",
+                    "province": "SK",
                     "zip": "M1M 1M1"
                 }
             }
