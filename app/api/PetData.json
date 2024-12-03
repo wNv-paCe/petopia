@@ -53,6 +53,276 @@
                     "zip": "M1M 1M1"
                 }
             }
+        },
+        {
+            "id": 2,
+            "type": "cat",
+            "breeds": {
+                "primary": "Siamese",
+                "secondary": "Mix",
+                "mixed": true,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "White",
+                "secondary": "Brown",
+                "tertiary": "Black"
+            },
+            "age": "Young",
+            "gender": "Male",
+            "size": "Medium",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": false,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "friendly",
+                "playful",
+                "energetic"
+            ],
+            "name": "Whiskers",
+            "description": "Whiskers is a friendly and playful cat. He is energetic and loves to play with other cats and dogs. He is house trained and up to date on all his shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2021-11-13T03:58:12",
+            "contact": {
+                "email": "placeholder@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Toronto",
+                    "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 3,
+            "type": "dog",
+            "breeds": {
+                "primary": "Poodle",
+                "secondary": "Mix",
+                "mixed": true,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "White",
+                "secondary": "Brown",
+                "tertiary": "Black"
+            },
+            "age": "Young",
+            "gender": "Female",
+            "size": "Small",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": false,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "friendly",
+                "playful",
+                "energetic"
+            ],
+            "name": "Luna",
+            "description": "Luna is a friendly and playful dog. She is energetic and loves to play with other dogs and cats. She is house trained and up to date on all her shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2021-11-13T03:58:12",
+            "contact": {
+                "email": "placeholder@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Toronto",
+                    "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 4,
+            "type": "cat",
+            "breeds": {
+                "primary": "Tabby",
+                "secondary": "Mix",
+                "mixed": true,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "Brown",
+                "secondary": "Black",
+                "tertiary": "White"
+            },
+            "age": "Adult",
+            "gender": "Female",
+            "size": "Small",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": false,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "friendly",
+                "playful",
+                "energetic"
+            ],
+            "name": "Mittens",
+            "description": "Mittens is a friendly and playful cat. She is energetic and loves to play with other cats and dogs. She is house trained and up to date on all her shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2021-11-13T03:58:12",
+            "contact": {
+                "email": "placeholder@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Toronto",
+                    "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 5,
+            "type": "dog",
+            "breeds": {
+                "primary": "Golden Retriever",
+                "secondary": "Mix",
+                "mixed": true,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "Brown",
+                "secondary": "White",
+                "tertiary": "Black"
+            },
+            "age": "Adult",
+            "gender": "Male",
+            "size": "Large",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": false,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "friendly",
+                "playful",
+                "energetic"
+            ],
+            "name": "Buddy",
+            "description": "Buddy is a friendly and playful dog. He is energetic and loves to play with other dogs and cats. He is house trained and up to date on all his shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2021-11-13T03:58:12",
+            "contact": {
+                "email": "placeholder@petopia.ca", 
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Toronto",
+                    "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
+        },
+        {
+            "id": 6,
+            "type": "cat",
+            "breeds": {
+                "primary": "Calico",
+                "secondary": "Mix",
+                "mixed": true,
+                "unknown": false
+            },
+            "colors": {
+                "primary": "White",
+                "secondary": "Brown",
+                "tertiary": "Black"
+            },
+            "age": "Young",
+            "gender": "Female",
+            "size": "Medium",
+            "coat": "Short",
+            "attributes": {
+                "spayed_neutered": true,
+                "house_trained": true,
+                "special_needs": false,
+                "shots_current": true
+            },
+            "environment": {
+                "children": true,
+                "dogs": true,
+                "cats": true
+            },
+            "tags": [
+                "friendly",
+                "playful",
+                "energetic"
+            ],
+            "name": "Mittens",
+            "description": "Mittens is a friendly and playful cat. She is energetic and loves to play with other cats and dogs. She is house trained and up to date on all her shots.",
+            "photos": [
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150",
+                "https://via.placeholder.com/150"
+            ],
+            "adoptable": true,
+            "published_at": "2021-11-13T03:58:12",
+            "contact": {
+                "email": "placeholder@petopia.ca",
+                "phone": "123-456-7890",
+                "address": {
+                    "street": "123 Main St",
+                    "city": "Toronto",
+                    "province": "ON",
+                    "zip": "M1M 1M1"
+                }
+            }
         }
     ]
 }
