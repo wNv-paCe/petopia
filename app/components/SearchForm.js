@@ -16,9 +16,14 @@ export default function SearchForm() {
     const [results, setResults] = useState([]);
 
     const handleSearch = () => { 
+        console.log('searchText:', searchText);
+
         const filteredResults = data.filter(animal => 
             (searchText ?
                 animal.type.toLowerCase().includes(searchText.toLowerCase()) ||
+                animal.name.toLowerCase().includes(searchText.toLowerCase()) ||
+                animal.breeds.primary.toLowerCase().includes(searchText.toLowerCase()) ||
+                animal.gender.toLowerCase().includes(searchText.toLowerCase()) ||
                 animal.age.toLowerCase().includes(searchText.toLowerCase()) ||
                 animal.contact.address.city.toLowerCase().includes(searchText.toLowerCase()) ||
                 animal.tags.some(tag => tag.toLowerCase().includes(searchText.toLowerCase())) 
@@ -32,6 +37,7 @@ export default function SearchForm() {
             (!cats || animal.environment.cats)
         ); 
         setResults(filteredResults); 
+        console.log('filteredResults:', filteredResults);
     };
 
     return ( 
@@ -76,7 +82,7 @@ export default function SearchForm() {
             </div>
 
             <button onClick={handleSearch}>Search</button> 
-            <div> {results.map((animal, index) => ( 
+            <div> {results.map((animal, index) => (
                 <div key={index}> 
                     <h2>{animal.name}</h2> 
                     <p>{animal.age} - {animal.breeds.primary} - {animal.breeds.secondary} - {animal.type}</p> 
