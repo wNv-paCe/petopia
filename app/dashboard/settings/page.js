@@ -115,7 +115,7 @@ export default function SettingsPage() {
       const userDocRef = doc(db, "users", currentUser.uid);
       await deleteDoc(userDocRef);
 
-      // Step 3: Delete Firebase Authentication user
+      // Step 4: Delete Firebase Authentication user
       await deleteUser(currentUser);
 
       alert("Your account has been deleted.");
