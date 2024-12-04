@@ -92,22 +92,26 @@ export default function SettingsPage() {
     setIsDeleting(true);
 
     try {
-      // Step 1: Check if Google account
-      const isGoogleUser = currentUser.providerData.some(
-        (provider) => provider.providerId === "google.com"
+      // Step 1: Check user's providerData
+      const providers = currentUser.providerData.map(
+        (provider) => provider.providerId
       );
 
-      if (!isGoogleUser) {
-        // Step 2: Re-authenticate user
+      if (providers.includes("password")) {
+        // User has set a password, re-authenticate with password
         const credentials = EmailAuthProvider.credential(
           currentUser.email,
           prompt("Please enter your password to confirm account deletion.")
         );
-
         await reauthenticateWithCredential(currentUser, credentials);
+      } else if (providers.includes("google.com")) {
+        // If the user only logs in via Google, prompt to re-login if session expired
+        console.log(
+          "Google user detected, skipping password re-authentication."
+        );
       }
 
-      // Step 3: Delete Firestore user data
+      // Step 2: Delete Firestore user data
       const userDocRef = doc(db, "users", currentUser.uid);
       await deleteDoc(userDocRef);
 
@@ -117,10 +121,19 @@ export default function SettingsPage() {
       alert("Your account has been deleted.");
     } catch (error) {
       console.error("Error deleting account: ", error.message || error);
-      if (error.code === "auth/requires-recent-login") {
-        alert("Please re-login to delete your account.");
+
+      // Handle session expiration errors
+      if (
+        error.code === "auth/requires-recent-login" ||
+        error.code === "auth/user-token-expired"
+      ) {
+        alert(
+          "Your session has expired. Please log in again to delete your account."
+        );
+        // Optional: Redirect user to login page
+        window.location.href = "/login";
       } else {
-        alert("An error occurred. Please try again.");
+        alert("An error occurred. Please try again later.");
       }
     } finally {
       setIsDeleting(false);
