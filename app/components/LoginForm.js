@@ -73,10 +73,7 @@ export default function LoginForm() {
             className="bg-background"
           />
         </div>
-        <Button
-          type="submit"
-          className="w-full bg-primary text-primary-foreground hover:bg-background/90"
-        >
+        <Button type="submit" className="w-full" variant="destructive">
           Login
         </Button>
       </form>

@@ -115,7 +115,7 @@ export default function SettingsPage() {
       const userDocRef = doc(db, "users", currentUser.uid);
       await deleteDoc(userDocRef);
 
-      // Step 4: Delete Firebase Authentication user
+      // Step 3: Delete Firebase Authentication user
       await deleteUser(currentUser);
 
       alert("Your account has been deleted.");
@@ -181,7 +181,11 @@ export default function SettingsPage() {
               required
             />
             <div>
-              <Button type="submit" disabled={isSubmitting}>
+              <Button
+                variant="destructive"
+                type="submit"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Submitting..." : "Send Feedback"}
               </Button>
             </div>

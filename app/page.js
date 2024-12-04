@@ -11,9 +11,7 @@ export default function Home() {
           Petopia
         </Link>
         <Link href="/login">
-          <Button className="bg-primary hover:bg-primary/90 text-secondary-foreground">
-            Log In
-          </Button>
+          <Button variant="destructive">Log In</Button>
         </Link>
       </header>
       <main className="container mx-auto px-4 py-8">
