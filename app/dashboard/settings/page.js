@@ -181,7 +181,11 @@ export default function SettingsPage() {
               required
             />
             <div>
-              <Button type="submit" disabled={isSubmitting}>
+              <Button
+                variant="destructive"
+                type="submit"
+                disabled={isSubmitting}
+              >
                 {isSubmitting ? "Submitting..." : "Send Feedback"}
               </Button>
             </div>
