@@ -48,11 +48,7 @@ export default function LoginForm() {
 
   return (
     <div className="space-y-4">
-      {error && (
-        <p className="text-red-500 mb-4 bg-red-50 border border-red-300 px-4 py-2 rounded">
-          {error}
-        </p>
-      )}
+      {error && <p className="text-destructive text-center">{error}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>
@@ -62,7 +58,7 @@ export default function LoginForm() {
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
-            className="border-pink-300 focus:border-pink-500"
+            className="bg-background"
           />
         </div>
         <div className="space-y-2">
@@ -74,33 +70,38 @@ export default function LoginForm() {
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
-            className="border-pink-300 focus:border-pink-500"
+            className="bg-background"
           />
         </div>
-        <Button type="submit" className="w-full bg-pink-500 hover:bg-pink-600">
+        <Button
+          type="submit"
+          className="w-full bg-primary text-primary-foreground hover:bg-background/90"
+        >
           Login
         </Button>
       </form>
       <div className="flex justify-between text-sm mt-4">
-        <Link href="/forgot-password" className="text-pink-600 hover:underline">
+        <Link href="/forgot-password" className="text-primary hover:underline">
           Forgot Password?
         </Link>
-        <Link href="/signup" className="text-pink-600 hover:underline">
+        <Link href="/signup" className="text-primary hover:underline">
           Don&apos;t have an account? Sign up
         </Link>
       </div>
       <div className="relative">
         <div className="absolute inset-0 flex items-center">
-          <span className="w-full border-t border-gray-300" />
+          <span className="w-full border-t border-muted-foreground" />
         </div>
         <div className="relative flex justify-center text-xs uppercase">
-          <span className="bg-white px-2 text-gray-500">Or continue with</span>
+          <span className="bg-card px-2 text-muted-foreground">
+            Or continue with
+          </span>
         </div>
       </div>
       <Button
         onClick={handleGoogleLogin}
         variant="outline"
-        className="w-full border-pink-300 text-pink-600 hover:bg-pink-50"
+        className="w-full border-input bg-background hover:bg-accent hover:text-accent-foreground"
       >
         Login with Google
       </Button>

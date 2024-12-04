@@ -55,7 +55,7 @@ export default function SignupForm() {
           name="username"
           placeholder="Enter your username"
           required
-          className="border-pink-300 focus:border-pink-500"
+          className="bg-background"
         />
       </div>
       <div className="space-y-2">
@@ -66,7 +66,7 @@ export default function SignupForm() {
           type="email"
           placeholder="Enter your email"
           required
-          className="border-pink-300 focus:border-pink-500"
+          className="bg-background"
         />
       </div>
       <div className="space-y-2">
@@ -77,7 +77,7 @@ export default function SignupForm() {
           type="password"
           placeholder="Enter your password"
           required
-          className="border-pink-300 focus:border-pink-500"
+          className="bg-background"
         />
       </div>
       <div className="space-y-2">
@@ -88,19 +88,19 @@ export default function SignupForm() {
           type="password"
           placeholder="Confirm your password"
           required
-          className="border-pink-300 focus:border-pink-500"
+          className="bg-background"
         />
       </div>
-      {error && <p className="text-red-500 text-center">{error}</p>}
+      {error && <p className="text-destructive text-center">{error}</p>}
       <Button
         type="submit"
-        className="w-full bg-pink-500 hover:bg-pink-600"
-        disable={loading}
+        className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
+        disabled={loading}
       >
         {loading ? "Signing Up..." : "Sign Up"}
       </Button>
       <div className="text-center text-sm">
-        <Link href="/login" className="text-pink-600 hover:underline">
+        <Link href="/login" className="text-primary hover:underline">
           Already have an account? Log in
         </Link>
       </div>
