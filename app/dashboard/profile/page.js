@@ -88,12 +88,14 @@ export default function ProfilePage() {
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader>
-        <CardTitle className="text-2xl font-bold text-pink-600">
+        <CardTitle className="text-2xl font-bold text-primary">
           Profile
         </CardTitle>
       </CardHeader>
       <CardContent className="space-y-4">
-        {errorMessage && <div className="text-red-500">{errorMessage}</div>}
+        {errorMessage && (
+          <div className="text-destructive text-center">{errorMessage}</div>
+        )}
         {successMessage && (
           <div className="text-green-500">{successMessage}</div>
         )}

@@ -105,10 +105,10 @@ export default function EditPasswordModal({ isOpen, onClose }) {
           <div className="space-y-4">
             <p className="text-sm">
               You are logged in with Google. To set a password, please use the
-              "Send Reset Email" option below.
+              &quot;Send Reset Email&quot; option below.
             </p>
             {errorMessage && (
-              <p className="text-red-500 text-sm">{errorMessage}</p>
+              <p className="text-destructive text-sm">{errorMessage}</p>
             )}
             <DialogFooter>
               <Button
@@ -153,7 +153,7 @@ export default function EditPasswordModal({ isOpen, onClose }) {
               className="mb-4"
             />
             {errorMessage && (
-              <p className="text-red-500 text-sm">{errorMessage}</p>
+              <p className="text-destructive text-sm">{errorMessage}</p>
             )}
             <DialogFooter>
               <Button
