@@ -92,24 +92,31 @@ export default function SettingsPage() {
     setIsDeleting(true);
 
     try {
-      // Step 1: Re-authenticate user
-      const credentials = EmailAuthProvider.credential(
-        currentUser.email,
-        prompt("Please enter your password to confirm account deletion.")
+      // Step 1: Check if Google account
+      const isGoogleUser = currentUser.providerData.some(
+        (provider) => provider.providerId === "google.com"
       );
 
-      await reauthenticateWithCredential(currentUser, credentials);
+      if (!isGoogleUser) {
+        // Step 2: Re-authenticate user
+        const credentials = EmailAuthProvider.credential(
+          currentUser.email,
+          prompt("Please enter your password to confirm account deletion.")
+        );
 
-      // Step 2: Delete Firesotre user data
+        await reauthenticateWithCredential(currentUser, credentials);
+      }
+
+      // Step 3: Delete Firestore user data
       const userDocRef = doc(db, "users", currentUser.uid);
       await deleteDoc(userDocRef);
 
-      // Step 3: Delete Firebase Authentication user
+      // Step 4: Delete Firebase Authentication user
       await deleteUser(currentUser);
 
       alert("Your account has been deleted.");
     } catch (error) {
-      console.error("Error deleting account: ", error);
+      console.error("Error deleting account: ", error.message || error);
       if (error.code === "auth/requires-recent-login") {
         alert("Please re-login to delete your account.");
       } else {
