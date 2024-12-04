@@ -4,22 +4,14 @@ import { useContext, createContext, useState, useEffect } from "react";
 import {
   signInWithPopup,
   signOut,
-  onAuthStateChanged,
   GoogleAuthProvider,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
 } from "firebase/auth";
-import { auth } from "./firebase";
-import {
-  getFirestore,
-  doc,
-  setDoc,
-  getDoc,
-  Timestamp,
-} from "firebase/firestore";
+import { auth, db } from "./firebase";
+import { doc, setDoc, getDoc, Timestamp } from "firebase/firestore";
 
 const AuthContext = createContext();
-const db = getFirestore();
 
 const createUserInFirestore = async (uid, email, username = "Anonymous") => {
   try {
@@ -138,32 +130,26 @@ export const AuthContextProvider = ({ children }) => {
 
   // Check if user is logged in
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
+    const unsubscribe = auth.onAuthStateChanged(async (currentUser) => {
       if (currentUser) {
-        try {
-          // Get user data from firestore
-          const userDocRef = doc(db, "users", currentUser.uid);
-          const userSnapshot = await getDoc(userDocRef);
+        const userDocRef = doc(db, "users", currentUser.uid);
+        const userSnapshot = await getDoc(userDocRef);
 
-          if (userSnapshot.exists()) {
-            const userData = userSnapshot.data();
-            // Merge user data with auth data
-            setUser({
-              uid: currentUser.uid,
-              email: currentUser.email,
-              displayName: currentUser.displayName,
-              username: userData.username || "Anonymous",
-            });
-          } else {
-            // if user data doesn't exist in firestore, use auth data
-            setUser({
-              uid: currentUser.uid,
-              email: currentUser.email,
-              displayName: currentUser.displayName || "Anonymous",
-            });
-          }
-        } catch (error) {
-          console.error("Failed to fetch Firestore user data:", error);
+        // if user exists in firestore, set user data
+        if (userSnapshot.exists()) {
+          const userData = userSnapshot.data();
+          setUser({
+            uid: currentUser.uid,
+            email: currentUser.email,
+            displayName: currentUser.displayName || "Anonymous",
+            username: userData.username || "Anonymous",
+          });
+        } else {
+          setUser({
+            uid: currentUser.uid,
+            email: currentUser.email,
+            displayName: currentUser.displayName || "Anonymous",
+          });
         }
       } else {
         setUser(null);
@@ -176,6 +162,7 @@ export const AuthContextProvider = ({ children }) => {
     <AuthContext.Provider
       value={{
         user,
+        setUser,
         registerWithEmail,
         loginWithEmail,
         googleSignIn,

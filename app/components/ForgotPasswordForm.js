@@ -36,16 +36,16 @@ export default function ForgotPasswordForm() {
           name="email"
           type="email"
           required
-          className="border-pink-300 focus:border-pink-500"
+          className="bg-background"
         />
       </div>
-      {error && <p className="text-red-500 text-center">{error}</p>}
+      {error && <p className="text-destructive text-center">{error}</p>}
       {success && (
-        <p className="text-green-500 text-center">
+        <p className="text-green-500 dark:text-green-400 text-center">
           Password reset instructions have been sent to your email.
         </p>
       )}
-      <Button type="submit" className="w-full bg-pink-500 hover:bg-pink-600">
+      <Button type="submit" className="w-full bg-primary hover:bg-primary/90">
         Reset Password
       </Button>
     </form>
