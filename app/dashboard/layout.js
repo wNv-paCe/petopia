@@ -55,6 +55,16 @@ export default function DashboardLayout({ children }) {
         </div>
         <ul className="space-y-2 p-4 flex-grow">
           <li>
+            <Link href="/dashboard/search">
+              <Button
+                variant="ghost"
+                className="w-full justify-start text-foreground hover:text-primary hover:bg-accent"
+              >
+                Search
+              </Button>
+            </Link>
+          </li>
+          <li>
             <Link href="/dashboard/profile">
               <Button
                 variant="ghost"
