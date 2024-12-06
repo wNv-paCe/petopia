@@ -59,8 +59,12 @@ export async function searchPets(category, city) {
     // Add city filter
     if (city && city.trim() !== "all cities") {
       // Exclude default 'all cities' and keep case format as in the database
-      const formattedCity =
-        city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
+      const formattedCity = city
+        .split(" ")
+        .map(
+          (word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()
+        )
+        .join(" ");
       filters.push(where("city", "==", formattedCity));
     }
 

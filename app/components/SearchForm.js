@@ -18,11 +18,18 @@ export default function SearchForm({ onSearch, onReset }) {
   const [cities, setCities] = useState([]);
   const [loadingCities, setLoadingCities] = useState(true);
 
+  const formatCityName = (name) => {
+    return name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+  };
+
   useEffect(() => {
     const loadCities = async () => {
       try {
         setLoadingCities(true);
-        const fetchedCities = await getAvailableCities(); // 调用 getAvailableCities 方法
+        const fetchedCities = await getAvailableCities();
         setCities(fetchedCities.length > 0 ? fetchedCities : ["Default City"]);
       } catch (error) {
         console.error("Error loading cities:", error);
@@ -38,7 +45,7 @@ export default function SearchForm({ onSearch, onReset }) {
   const handleSearch = () => {
     const filters = {
       category: category === "all" ? "" : category,
-      city: city === "all" ? "" : city.toLowerCase(),
+      city: city === "all" ? "" : formatCityName(city),
     };
     if (onSearch) onSearch(filters);
   };

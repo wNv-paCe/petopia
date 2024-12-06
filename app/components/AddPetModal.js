@@ -57,8 +57,29 @@ export default function AddPetModal({ isOpen, onClose, onAdd }) {
       return;
     }
 
+    // Capitalize the first letter of the name, city and breed
+    const formattedName = petInfo.name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+    const formattedCity = petInfo.city
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+    const formattedBreed = petInfo.breed
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+
     try {
-      await onAdd({ ...petInfo, userId: auth.currentUser.uid, source: "user" });
+      await onAdd({
+        ...petInfo,
+        name: formattedName, // Capitalize the first letter of each word in the name
+        city: formattedCity, // Capitalize the first letter of each word in the city
+        breed: formattedBreed, // Capitalize the first letter of each word in the breed
+        userId: auth.currentUser.uid,
+        source: "user",
+      });
       setPetInfo({
         name: "",
         breed: "",
