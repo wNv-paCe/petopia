@@ -63,7 +63,7 @@ export default function PetList({
             )}
             {pet.source && (
               <p className="text-xs text-muted-foreground italic">
-                Source: {pet.source === "user" ? "You" : "Third-party"}
+                Source: {pet.source === "user" ? "user" : "Third-party"}
               </p>
             )}
           </CardContent>

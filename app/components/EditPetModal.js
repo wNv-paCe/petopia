@@ -42,13 +42,27 @@ export default function EditPetModal({ isOpen, onClose, pet, onSave }) {
       return;
     }
 
+    // Capitalize the first letter of the name, city and breed
+    const formattedName = name
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+    const formattedCity = city
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+    const formattedBreed = breed
+      .split(" ")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+      .join(" ");
+
     try {
       setIsSubmitting(true);
       await onSave(pet.id, {
-        name,
-        breed,
+        name: formattedName,
+        breed: formattedBreed,
         age: Number(age),
-        city,
+        city: formattedCity,
         category,
         description,
         imageUrl,
