@@ -23,6 +23,12 @@ export default function Home() {
       </main>
       <footer className="mt-12 py-6 bg-muted text-center text-muted-foreground">
         <p>&copy; 2023 Petopia. All rights reserved.</p>
+        <p>
+          {" "}
+          <a href="https://icp.gov.moe/?keyword=20260909" target="_blank">
+            萌ICP备20260909号
+          </a>
+        </p>
       </footer>
     </div>
   );
